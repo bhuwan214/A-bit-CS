@@ -126,7 +126,7 @@ class Linkedlist {
     let str = "";
    
     while(current!==null){
-      str += "("+ current.value +")" + " -> ";
+      str += "( "+ current.value +" )" + " -> ";
       console.log(str)
       current = current.nextNode;
     }
