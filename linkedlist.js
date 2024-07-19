@@ -120,22 +120,13 @@ class Linkedlist {
     console.log(count);
   }
 
-// Print whole linked list 
-  print() {
-    let current = this.head;
-    while (current !== null) {
-      console.log(current.value);
-      current = current.nextNode;
-    }
-  }
-
 //Print linkedd list in string format 
   toString(){
     let current = this.head;
     let str = "";
    
     while(current!==null){
-      str += current.value + " -> ";
+      str += "("+ current.value +")" + " -> ";
       console.log(str)
       current = current.nextNode;
     }
@@ -185,7 +176,6 @@ list.prepend(0)
 list.prepend(11)
 
 
-list.print();
 list.sizeof();
 list.pop();
 list.remove(10)
