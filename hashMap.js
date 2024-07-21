@@ -1,4 +1,3 @@
-
 class HashMap {
   constructor(initialCapacity = 16) {
     this.size = 0;
@@ -65,7 +64,7 @@ class HashMap {
     return undefined;
   }
 
-  has(key){
+  has(key) {
     const index = this.getBucketIndex(key);
     const bucket = this.buckets[index];
 
@@ -75,7 +74,6 @@ class HashMap {
       }
     }
     return false;
-
   }
 
   remove(key) {
@@ -92,34 +90,38 @@ class HashMap {
     return false;
   }
 
-  clear(){
+  clear() {
     this.buckets = [];
   }
 
-
   //Trace the entire hash map
- trace(){
-    let count=0;
-    for (let i = 0; i < this.buckets.length; i++) {
-        console.log(i + ": " + this.buckets[i]);
-        
-        }
-    
- }
-
-
-
- length(){ 
-
+  trace() {
     let count = 0;
     for (let i = 0; i < this.buckets.length; i++) {
-        count+=this.buckets[i].length;
+      console.log(i + ": " + this.buckets[i]);
+    }
+  }
+
+  length() {
+    let count = 0;
+    for (let i = 0; i < this.buckets.length; i++) {
+      count += this.buckets[i].length;
     }
     return console.log("The length is", count);
- }
+  }
 
+  entires() {
+    // console.log(this.buckets)            let newBucket=[]
+    let newBucket = [];
 
-
+    for (const bucket of this.buckets) {
+      // console.log(bucket.length)
+      if (bucket.length !== 0) {
+        newBucket.push(bucket);
+      }
+    }
+    console.log(newBucket);
+  }
 
   resize() {
     const newCapacity = this.capacity * 2;
@@ -140,38 +142,37 @@ class HashMap {
   }
 }
 
-
-
 const map = new HashMap();
-map.set('apple', 'red')
-map.set('banana', 'yellow')
-map.set('carrot', 'orange')
-map.set('dog', 'brown')
-map.set('elephant', 'gray')
-map.set('frog', 'green')
-map.set('grape', 'purple')
-map.set('hat', 'black')
-map.set('ice cream', 'white')
+map.set("apple", "red");
+map.set("banana", "yellow");
+map.set("carrot", "orange");
+map.set("dog", "brown");
+map.set("elephant", "gray");
+map.set("frog", "green");
+map.set("grape", "purple");
+map.set("hat", "black");
+map.set("ice cream", "white");
+map.set("name", "koe");
+map.set("age", 30);
 // map.set('jacket', 'blue')
 // map.set('kite', 'pink')
 // map.set('lion', 'golden')
-console.log( map.has("name"))
-map.set("name", "koe")
-map.set("age", 30);
-map.trace()
-console.log(map.get("name")); // Output: Alice
-console.log(map.get("age")); // Output: 30
+
+// console.log( map.has("name"))
+// map.trace()
+// console.log(map.get("name"));
+// console.log(map.get("age"));
 
 // map.remove("name");
-console.log(map.get("name")); // Output: undefined
 
 // Adding more entries to trigger resize
 // for (let i = 0; i < 20; i++) {
 //     map.set(`key${i}`, `value${i}`);
 // }
 
-
 // console.log(map.length())
 // map.clear()
-map.trace()
-map.length()
+// map.trace()
+// map.length()
+
+map.entires();
